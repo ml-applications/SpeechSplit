@@ -7,13 +7,13 @@ echo 'Creating volume...'
 docker volume create \
   --driver local \
   --opt type=none \
-  --opt device=./assets \
+  --opt device="$(pwd)/assets" \
   --opt o=bind \
   assets_volume
 
-  #--mount 'type=volume,src=assets_volume,dst=/app/assets' \
 echo 'Running...'
 docker run \
+  --mount 'type=volume,src=assets_volume,dst=/app/assets' \
   -e MOUNT_DIR=/app/assets \
   -p 8080:8080 \
   -it \

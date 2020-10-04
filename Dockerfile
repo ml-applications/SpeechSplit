@@ -37,8 +37,6 @@ RUN python3.7 -m venv python \
       torchvision==0.7.0+cu101 \
       -f https://download.pytorch.org/whl/torch_stable.html
 
-
-
 COPY *.py ./
 COPY *.ipynb ./
 COPY tfcompat/ ./tfcompat/
